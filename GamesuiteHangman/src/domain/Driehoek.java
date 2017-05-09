@@ -2,7 +2,7 @@ package domain;
 
 import domain.*;
 
-public class Driehoek {
+public class Driehoek extends Vorm {
 	private Punt hoekpunt1;
 	private Punt hoekpunt2;
 	private Punt hoekpunt3;
@@ -40,9 +40,9 @@ public class Driehoek {
 		boolean resultaat = false;
 		if (o instanceof Driehoek) {
 			Driehoek driehoek = (Driehoek) o;
-			resultaat = (this.getHoekpunt1().equals(driehoek.getHoekpunt1()) || this.getHoekpunt1().equals(driehoek.getHoekpunt2()) || this.getHoekpunt1().equals(driehoek.getHoekpunt3()))
-					&& (this.getHoekpunt2().equals(driehoek.getHoekpunt2()) || this.getHoekpunt2().equals(driehoek.getHoekpunt3()) || this.getHoekpunt2().equals(driehoek.getHoekpunt1()))
-					&& (this.getHoekpunt3().equals(driehoek.getHoekpunt3()) || this.getHoekpunt3().equals(driehoek.getHoekpunt2()) ||this.getHoekpunt3().equals(driehoek.getHoekpunt1())) ;
+			resultaat = this.getHoekpunt1().equals(driehoek.getHoekpunt1())
+					&& this.getHoekpunt2().equals(driehoek.getHoekpunt2())
+					&& this.getHoekpunt3().equals(driehoek.getHoekpunt3());
 		}
 		return resultaat;
 	}
