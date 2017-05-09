@@ -1,6 +1,6 @@
 package domain;
 
-public class Lijnstuk {
+public class Lijnstuk extends Vorm{
 	
 	private Punt start;
 	private Punt eind;
