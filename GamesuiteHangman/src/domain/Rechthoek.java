@@ -2,10 +2,9 @@ package domain;
 
 public class Rechthoek {
 	private int breedte, hoogte;
-	Omhullende omhullende;
 	Punt linkerbovenhoek;
 	
-	public Rechthoek(Punt linkerbovenhoek, int breedte, int hoogte, Omhullende omhullende){
+	public Rechthoek(Punt linkerbovenhoek, int breedte, int hoogte){
 		setBreedte(breedte);
 		setHoogte(hoogte);
 		setLinkerBovenhoek(linkerbovenhoek);
@@ -20,13 +19,6 @@ public class Rechthoek {
 			throw new DomainException("Ongeldige linkerbovenhoek");
 		}
 		this.linkerbovenhoek = linkerbovenhoek;
-	}
-	
-	private void setOmhullende(Omhullende omhullende) {
-		if(this.omhullende == null) {
-			throw new DomainException("Ongeldige omhullende");
-		}
-		this.omhullende = omhullende;
 	}
 
 	public int getBreedte() {
@@ -65,10 +57,10 @@ public class Rechthoek {
 	}
 	
 	public String toString(){
-		return "Rechthoek: positie: " + linkerbovenhoek + " - breedte: " + this.breedte + " - hoogte: " + hoogte + "\n" + this.omhullende;
+		return "Rechthoek: positie: " + linkerbovenhoek + " - breedte: " + this.breedte + " - hoogte: " + hoogte + "\n" + getOmhullende();
 	}
 
 	public Omhullende getOmhullende() {
-		return this.omhullende;
+		return new Omhullende(linkerbovenhoek, breedte, hoogte);
 	}
 }
