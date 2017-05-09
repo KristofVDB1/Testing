@@ -1,12 +1,12 @@
 package domain;
 
-public class Lijnstuk {
+public class LijnStuk {
 	
 	private Punt start;
 	private Punt eind;
 	
 	
-	public Lijnstuk(Punt start, Punt eind){
+	public LijnStuk(Punt start, Punt eind){
 		setStartEnEindPunt(start, eind);
 		
 	}
@@ -34,8 +34,8 @@ public class Lijnstuk {
 			return false;
 		}
 		
-		Punt start1 = ((Lijnstuk) o).getStartPunt();
-		Punt eind1 = ((Lijnstuk) o).getEindPunt();
+		Punt start1 = ((LijnStuk) o).getStartPunt();
+		Punt eind1 = ((LijnStuk) o).getEindPunt();
 		
 		if ((start1.getX() == this.start.getX() && start1.getY() == this.start.getY()) &&
 				(eind1.getX() == this.eind.getX() && eind1.getY() == this.eind.getY())){
