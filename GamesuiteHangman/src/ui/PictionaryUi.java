@@ -2,8 +2,7 @@ package ui;
 
 import javax.swing.JOptionPane;
 
-import domain.Punt;
-import domain.Speler;
+import domain.*;
 
 public class PictionaryUi {
 	
@@ -29,6 +28,12 @@ public class PictionaryUi {
 		Punt punt = new Punt(x, y);
 		
 		JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + punt.toString());
+		
+		int radius = Integer.parseInt(JOptionPane.showInputDialog("Radius van de cirkel: "));
+		
+		Cirkel cirkel = new Cirkel(punt, radius);
+		
+		JOptionPane.showMessageDialog(null, "U heeft een correcte cirkel aangemaakt: " + cirkel);
 		
 	}
 	
