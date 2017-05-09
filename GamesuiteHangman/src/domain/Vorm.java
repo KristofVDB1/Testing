@@ -1,11 +1,10 @@
 package domain;
 
-public class Vorm {
+public abstract class Vorm {
 	
-	public boolean equals (Object o) {
-		boolean resultaat = false;
-		
-		return resultaat;
-	}
+	
+	
+	public abstract boolean equals (Object o);
 
+	public abstract String toString();
 }
