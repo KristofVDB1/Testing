@@ -23,8 +23,10 @@ public class PictionaryUi {
 	
 	
 	public void showMenu(){
+		
 		int x = Integer.parseInt(JOptionPane.showInputDialog("x coördinaat van het punt"));
 		int y = Integer.parseInt(JOptionPane.showInputDialog("y coördinaat van het punt"));
+			
 		
 		Punt punt = new Punt(x, y);
 		
