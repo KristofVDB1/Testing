@@ -1,12 +1,12 @@
 package domain;
 
-public class LijnStuk extends Vorm{
+public class Lijnstuk extends Vorm{
 	
 	private Punt start;
 	private Punt eind;
 	
 	
-	public LijnStuk(Punt start, Punt eind){
+	public Lijnstuk(Punt start, Punt eind){
 		setStartEnEindPunt(start, eind);
 		
 	}
@@ -34,8 +34,8 @@ public class LijnStuk extends Vorm{
 			return false;
 		}
 		
-		Punt start1 = ((LijnStuk) o).getStartPunt();
-		Punt eind1 = ((LijnStuk) o).getEindPunt();
+		Punt start1 = ((Lijnstuk) o).getStartPunt();
+		Punt eind1 = ((Lijnstuk) o).getEindPunt();
 		
 		if ((start1.getX() == this.start.getX() && start1.getY() == this.start.getY()) &&
 				(eind1.getX() == this.eind.getX() && eind1.getY() == this.eind.getY())){
@@ -46,7 +46,7 @@ public class LijnStuk extends Vorm{
 
 	@Override
 	public String toString() {
-		return "Lijnstuk met als startpunt: " + start +" en als eindpunt: " + eind;
+		return "Lijnstuk: Startpunt: " + start + " - Eindpunt: " + eind;
 	}
 	
 	
