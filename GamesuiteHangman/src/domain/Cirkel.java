@@ -1,8 +1,14 @@
 package domain;
 
-import domain.Punt;
+<<<<<<< HEAD
+import domain.*;
+=======
+import java.awt.Graphics;
 
-public class Cirkel extends Vorm{
+import domain.Punt;
+>>>>>>> 7690171462cefc4ada6152b26f5f8571704789af
+
+public class Cirkel extends Vorm implements Drawable{
 	private int radius;
 	private Punt middelpunt;
 	
@@ -31,6 +37,15 @@ public class Cirkel extends Vorm{
 		this.middelpunt = middelpunt;
 	}
 	
+	public Punt berekenOmhullendeMiddelpunt() {
+		Punt MP = new Punt((middelpunt.getX()-radius), (middelpunt.getY()-radius));
+		return MP;
+	}
+	
+	public Omhullende getOmhullende () {
+		return new Omhullende (this.berekenOmhullendeMiddelpunt(), radius*2, radius*2);
+	}
+		
 	@Override
 	public boolean equals(Object o) {
 		boolean result = false;
@@ -46,6 +61,12 @@ public class Cirkel extends Vorm{
 	@Override
 	public String toString(){
 		return "cirkel:  middelpunt: " + this.getMiddelpunt() + " - straal: "  + this.getRadius();
+	}
+
+	@Override
+	public void teken(Graphics graphics) {
+		graphics.drawOval(this.getOmhullende().getMinX(), this.getOmhullende.getMinY(), this.getOmhullende.getBreedte(), this.getOmhullende.getHoogte());
+		
 	}
 	
 	

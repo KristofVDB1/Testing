@@ -1,8 +1,10 @@
 package domain;
 
+import java.awt.Graphics;
+
 import domain.*;
 
-public class Driehoek extends Vorm {
+public class Driehoek extends Vorm implements Drawable {
 
 	private Punt hoekpunt1;
 	private Punt hoekpunt2;
@@ -52,5 +54,15 @@ public class Driehoek extends Vorm {
 	public String toString() {
 		return "Driehoek: hoekpunt1: " + this.hoekpunt1 + "- hoekpunt 2: " + this.hoekpunt2 + "- hoekpunt3: "
 				+ this.hoekpunt3;
+	}
+
+	@Override
+	public void teken(Graphics graphics) {
+		int[] xPoints = { this.getHoekpunt1().getX(), this.getHoekpunt2().getX(),
+				this.getHoekpunt3().getX() };
+		int[] yPoints = { this.getHoekpunt1().getY(), this.getHoekpunt2().getY(),
+				this.getHoekpunt3().getY() };
+		graphics.drawPolygon(xPoints, yPoints, 3);
+		
 	}
 }
