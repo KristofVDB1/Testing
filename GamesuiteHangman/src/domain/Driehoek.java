@@ -37,6 +37,71 @@ public class Driehoek extends Vorm implements Drawable {
 	public Punt getHoekpunt3() {
 		return hoekpunt3;
 	}
+	
+	public int getHoogsteX () {
+		int hoogsteX = 0;
+
+		if (this.hoekpunt1.getX() >this.hoekpunt2.getX() && this.hoekpunt1.getX() > this.hoekpunt3.getX()) {
+			hoogsteX = this.hoekpunt1.getX();
+		}
+		else if (this.hoekpunt2.getX() >this.hoekpunt1.getX() && this.hoekpunt2.getX() > this.hoekpunt3.getX()) {
+			hoogsteX = this.hoekpunt2.getX();
+		}
+		else {
+			hoogsteX = this.hoekpunt3.getX();
+		}
+		return hoogsteX;
+	}
+	
+	public int getHoogsteY () {
+		int hoogsteY = 0;
+
+		if (this.hoekpunt1.getY() >this.hoekpunt2.getY() && this.hoekpunt1.getY() > this.hoekpunt3.getY()) {
+			hoogsteY = this.hoekpunt1.getY();
+		}
+		else if (this.hoekpunt2.getY() >this.hoekpunt1.getY() && this.hoekpunt2.getY() > this.hoekpunt3.getY()) {
+			hoogsteY = this.hoekpunt2.getY();
+		}
+		else {
+			hoogsteY = this.hoekpunt3.getY();
+		}
+		return hoogsteY;
+	}
+	
+	public int getLaagsteX () {
+		int laagsteX = 0;
+
+		if (this.hoekpunt1.getX() <this.hoekpunt2.getX() && this.hoekpunt1.getX() < this.hoekpunt3.getX()) {
+			laagsteX = this.hoekpunt1.getX();
+		}
+		else if (this.hoekpunt2.getX() <this.hoekpunt1.getX() && this.hoekpunt2.getX() < this.hoekpunt3.getX()) {
+			laagsteX = this.hoekpunt2.getX();
+		}
+		else {
+			laagsteX = this.hoekpunt3.getX();
+		}
+		return laagsteX;
+	}
+	
+	public int getLaagsteY () {
+		int laagsteY = 0;
+
+		if (this.hoekpunt1.getX() <this.hoekpunt2.getX() && this.hoekpunt1.getX() < this.hoekpunt3.getX()) {
+			laagsteY = this.hoekpunt1.getX();
+		}
+		else if (this.hoekpunt2.getX() <this.hoekpunt1.getX() && this.hoekpunt2.getX() < this.hoekpunt3.getX()) {
+			laagsteY = this.hoekpunt2.getX();
+		}
+		else {
+			laagsteY = this.hoekpunt3.getX();
+		}
+		return laagsteY;
+	}
+	
+	public Omhullende getOmhullende() {
+		Punt beginpunt = new Punt(this.getLaagsteX(), this.getLaagsteY());
+		return new Omhullende (beginpunt, this.getHoogsteX()-this.getLaagsteX() , this.getHoogsteY()- this.getLaagsteY());
+	}
 
 	@Override
 	public boolean equals(Object o) {

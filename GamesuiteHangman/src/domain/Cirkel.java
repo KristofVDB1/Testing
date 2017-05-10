@@ -1,12 +1,9 @@
 package domain;
 
-<<<<<<< HEAD
 import domain.*;
-=======
 import java.awt.Graphics;
 
 import domain.Punt;
->>>>>>> 7690171462cefc4ada6152b26f5f8571704789af
 
 public class Cirkel extends Vorm implements Drawable{
 	private int radius;
@@ -65,7 +62,7 @@ public class Cirkel extends Vorm implements Drawable{
 
 	@Override
 	public void teken(Graphics graphics) {
-		graphics.drawOval(this.getOmhullende().getMinX(), this.getOmhullende.getMinY(), this.getOmhullende.getBreedte(), this.getOmhullende.getHoogte());
+		graphics.drawOval(this.getOmhullende().getMinimumX(), this.getOmhullende().getMinimumY(), this.getOmhullende().getBreedte(), this.getOmhullende().getHoogte());
 		
 	}
 	
