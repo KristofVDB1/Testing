@@ -43,6 +43,11 @@ public class Lijnstuk extends Vorm{
 		}
 		return false;
 	}
+
+	@Override
+	public String toString() {
+		return "Lijnstuk: Startpunt: " + start + " - Eindpunt: " + eind;
+	}
 	
 	
 }
