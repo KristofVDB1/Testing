@@ -1,6 +1,6 @@
 package domain;
 
-import domain.Punt;
+import domain.*;
 
 public class Cirkel extends Vorm{
 	private int radius;
@@ -31,6 +31,15 @@ public class Cirkel extends Vorm{
 		this.middelpunt = middelpunt;
 	}
 	
+	public Punt berekenOmhullendeMiddelpunt() {
+		Punt MP = new Punt((middelpunt.getX()-radius), (middelpunt.getY()-radius));
+		return MP;
+	}
+	
+	public Omhullende getOmhullende () {
+		return new Omhullende (this.berekenOmhullendeMiddelpunt(), radius*2, radius*2);
+	}
+		
 	@Override
 	public boolean equals(Object o) {
 		boolean result = false;
