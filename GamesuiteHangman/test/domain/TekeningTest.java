@@ -16,6 +16,7 @@ public class TekeningTest {
 	private Vorm raambalk1;
 	private Vorm raambalk2;
 	private Vorm schouwNietInTekening;
+	private Vorm fouteVorm;
 	
 	@Before
 	public void setUp() {
@@ -27,6 +28,7 @@ public class TekeningTest {
 		raambalk1 = new LijnStuk(new Punt(210, 250), new Punt(290, 250));
 		raambalk2 = new LijnStuk(new Punt(250, 220), new Punt(250, 280));
 		schouwNietInTekening = new Rechthoek(new Punt(150, 150), 20,40);
+		fouteVorm = new LijnStuk(new Punt(-1, 0), new Punt(5, 0));
 	}
 
 	@Test
@@ -137,6 +139,13 @@ public class TekeningTest {
 		huisMetSchouwZonderDeur.voegToe(raambalk2);
 		huisMetSchouwZonderDeur.voegToe(schouwNietInTekening);
 		return huisMetSchouwZonderDeur;
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void vorm_Met_X_Kleiner_Dan_Min_X_Gooit_Exception(){
+		Tekening tekening = new Tekening("dskqfjlm");
+		tekening.voegToe(fouteVorm);
+		
 	}
 
 }
