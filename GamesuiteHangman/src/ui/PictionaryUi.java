@@ -27,19 +27,20 @@ public class PictionaryUi {
 	}
 	
 	private void showMenuTekening() {
-		String keuzeString = JOptionPane.showInputDialog("Wat wil je doen: \n\n1. Vorm maken\n2. Tekening tonen\n\n0. Stoppen");
 		boolean stop = false;
 		
 		while(!stop) {
 			try {
-				int keuze = Integer.parseInt(keuzeString);
+				int keuze = Integer.parseInt(JOptionPane.showInputDialog("Wat wil je doen: \n\n1. Vorm maken\n2. Tekening tonen\n\n0. Stoppen"));
 				
 				switch(keuze) {
 				case 1:
 					createShape();
 					break;
 				case 2:
-					JOptionPane.showMessageDialog(null, tekening);
+					GameHoofdScherm view = new GameHoofdScherm("nog niks", tekening);
+					view.setVisible(true);
+					view.teken();
 					break;
 				case 0:
 					stop = true;
