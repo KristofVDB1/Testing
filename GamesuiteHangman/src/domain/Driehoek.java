@@ -2,8 +2,11 @@ package domain;
 
 import domain.*;
 
-
+<<<<<<< HEAD
+public class Driehoek extends Vorm{
+=======
 public class Driehoek extends Vorm {
+>>>>>>> 04f864e6ddfacb13210480abbcedb229f5e1742e
 	private Punt hoekpunt1;
 	private Punt hoekpunt2;
 	private Punt hoekpunt3;
