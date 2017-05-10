@@ -1,8 +1,10 @@
 package domain;
 
+import java.awt.Graphics;
+
 import domain.Punt;
 
-public class Cirkel extends Vorm{
+public class Cirkel extends Vorm implements Drawable{
 	private int radius;
 	private Punt middelpunt;
 	
@@ -46,6 +48,12 @@ public class Cirkel extends Vorm{
 	@Override
 	public String toString(){
 		return "cirkel:  middelpunt: " + this.getMiddelpunt() + " - straal: "  + this.getRadius();
+	}
+
+	@Override
+	public void teken(Graphics graphics) {
+		graphics.drawOval(this.getOmhullende().getMinX(), this.getOmhullende.getMinY(), this.getOmhullende.getBreedte(), this.getOmhullende.getHoogte());
+		
 	}
 	
 	
