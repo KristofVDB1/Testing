@@ -13,11 +13,11 @@ public class LijnStukTest {
 	private Punt zelfdeAlsPunt2 = new Punt(190, 30);
 
 	@Test
-	public void LijnStuk_moet_lijnstuk_aanmaken_met_gegeven_startPunt_en_eindPunt() {
-		LijnStuk lijnstuk = new LijnStuk(punt1, punt2);
+	public void LijnStuk_moet_LijnStuk_aanmaken_met_gegeven_startPunt_en_eindPunt() {
+		LijnStuk LijnStuk = new LijnStuk(punt1, punt2);
 
-		assertEquals(punt1, lijnstuk.getStartPunt());
-		assertEquals(punt2, lijnstuk.getEindPunt());
+		assertEquals(punt1, LijnStuk.getStartPunt());
+		assertEquals(punt2, LijnStuk.getEindPunt());
 	}
 	
 	@Test (expected = DomainException.class)
@@ -32,15 +32,15 @@ public class LijnStukTest {
 	
 	@Test
 	public void equals_moet_true_teruggeven_als_begin_en_eindpunt_gelijk_zijn(){
-		LijnStuk lijnStuk = new LijnStuk(punt1, punt2);
+		LijnStuk LijnStuk = new LijnStuk(punt1, punt2);
 		LijnStuk zelfdeLijnStuk = new LijnStuk(zelfdeAlsPunt1, zelfdeAlsPunt2);
-		assertTrue(lijnStuk.equals(zelfdeLijnStuk));
+		assertTrue(LijnStuk.equals(zelfdeLijnStuk));
 	}
 	
 	@Test
 	public void equals_moet_false_teruggeven_als_parameter_null(){
-		LijnStuk lijnStuk = new LijnStuk(punt1, punt2);
-		assertFalse(lijnStuk.equals(null));
+		LijnStuk LijnStuk = new LijnStuk(punt1, punt2);
+		assertFalse(LijnStuk.equals(null));
 	}
 }
 	

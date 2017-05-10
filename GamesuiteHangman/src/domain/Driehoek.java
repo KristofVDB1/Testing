@@ -2,7 +2,6 @@ package domain;
 
 import domain.*;
 
-
 public class Driehoek extends Vorm {
 
 	private Punt hoekpunt1;
