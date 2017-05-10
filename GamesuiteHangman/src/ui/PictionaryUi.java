@@ -7,15 +7,51 @@ import domain.*;
 public class PictionaryUi {
 	
 	private Speler speler;
+	private Tekening tekening;
 	private Object[] shapes = {"Cirkel", "Rechthoek", "Lijnstuk", "Driehoek" };
-	
-	
 	
 	public PictionaryUi(){
 		//setSpeler(speler);
-		createShape();
+		createTekening();
+		showMenuTekening();
 	}
 	
+	private void createTekening() {
+		String naam = JOptionPane.showInputDialog("Geef de naam van je tekening:");
+		
+		try {
+			tekening = new Tekening(naam);
+		}catch(IllegalArgumentException exc) {
+			JOptionPane.showMessageDialog(null, exc.getMessage());
+		}
+	}
+	
+	private void showMenuTekening() {
+		String keuzeString = JOptionPane.showInputDialog("Wat wil je doen: \n\n1. Vorm maken\n2. Tekening tonen\n\n0. Stoppen");
+		boolean stop = false;
+		
+		while(!stop) {
+			try {
+				int keuze = Integer.parseInt(keuzeString);
+				
+				switch(keuze) {
+				case 1:
+					createShape();
+					break;
+				case 2:
+					JOptionPane.showMessageDialog(null, tekening);
+					break;
+				case 0:
+					stop = true;
+					break;
+				default:
+					stop = true;
+				}
+			}catch(NumberFormatException exc) {
+				JOptionPane.showMessageDialog(null, "Ongeldige keuze");
+			}
+		}
+	}
 	
 	public void setSpeler(Speler speler) {
 		this.speler = speler;
@@ -42,6 +78,7 @@ public class PictionaryUi {
 				JOptionPane.showMessageDialog(null, "Foute invoer");
 				createShape();
 			}
+			break;
 		case "Cirkel":
 			int x = Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het punt"));
 			int y = Integer.parseInt(JOptionPane.showInputDialog("y coordinaat van het punt"));				
@@ -56,7 +93,7 @@ public class PictionaryUi {
 			
 			JOptionPane.showMessageDialog(null, "U heeft een correcte cirkel aangemaakt: " + cirkel);
 		
-			
+			break;
 		case "Lijnstuk": 
 			
 			Punt punt1 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het eerste punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het eerste punt")));
@@ -65,7 +102,7 @@ public class PictionaryUi {
 			LijnStuk lijnstuk = new LijnStuk (punt1, punt2);
 			
 			JOptionPane.showMessageDialog(null, "U heeft het lijnstuk gemaakt: " + lijnstuk.toString());
-			
+			break;
 		case "Driehoek": 
 			Punt puntDriehoek1 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het eerste punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het eerste punt")));
 			Punt puntDriehoek2 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het tweede punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het tweede punt")));
@@ -74,7 +111,7 @@ public class PictionaryUi {
 			Driehoek driehoek = new Driehoek (puntDriehoek1, puntDriehoek2, puntDriehoek3);
 			
 			JOptionPane.showMessageDialog(null, driehoek.toString());
-		
+			break;
 		default:
 			
 		}

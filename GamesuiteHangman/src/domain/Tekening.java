@@ -18,7 +18,7 @@ public class Tekening {
 
 	private void setNaam(String naam) {
 		if(naam == null || naam.trim().equals("")) {
-			throw new DomainException("Ongeldige naam");
+			throw new IllegalArgumentException("Ongeldige naam");
 		}
 		this.naam = naam;
 	}
@@ -49,11 +49,7 @@ public class Tekening {
 		if(vorm == null) {
 			throw new DomainException("Ongeldige vorm");
 		}
-		for(Vorm temp : vormen) {
-			if(temp.equals(vorm)) {
-				vormen.remove(temp);
-			}
-		}
+		vormen.remove(vorm);
 	}
 	
 	public boolean bevat(Vorm vorm) {
@@ -77,11 +73,15 @@ public class Tekening {
 		if(object instanceof Tekening) {
 			Tekening tekening = (Tekening) object;
 			if(tekening.getAantalVormen() == this.getAantalVormen()) {
+				int count = 0;
 				for(int i = 0; i < vormen.size(); i++) {
-					if(!tekening.getVorm(i).getClass().equals(this.getVorm(i).getClass()) || !tekening.getVorm(i).equals(this.getVorm(i))) {
-						return false;
+					for(int j = 0; j < vormen.size(); j++) {
+						if(this.getVorm(i).getClass().equals(tekening.getVorm(j).getClass()) && this.getVorm(i).equals(tekening.getVorm(j))) {
+							count++;
+						}
 					}
 				}
+				if(count != this.getAantalVormen()) return false;
 				return true;
 			}
 		}
