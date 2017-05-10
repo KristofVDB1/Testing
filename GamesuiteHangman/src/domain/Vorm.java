@@ -1,6 +1,8 @@
 package domain;
 
-public abstract class Vorm {
+import java.awt.Graphics;
+
+public abstract class Vorm implements Drawable {
 	
 	
 	

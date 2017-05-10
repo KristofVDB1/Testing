@@ -1,8 +1,9 @@
 package domain;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 
-public class Tekening {
+public class Tekening implements Drawable {
 	private static final int MIN_X = 0;
 	private static final int MIN_Y = 0;
 	private static final int MAX_X = 399;
@@ -86,5 +87,13 @@ public class Tekening {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public void teken(Graphics graphics) {
+		for(Vorm v: this.vormen){
+			v.teken(graphics);
+		}
+		
 	}
 }
