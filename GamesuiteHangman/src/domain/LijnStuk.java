@@ -9,8 +9,7 @@ public class LijnStuk extends Vorm implements Drawable {
 	private Punt eind;
 
 	public LijnStuk(Punt start, Punt eind) {
-		setStartEnEindPunt(start, eind);
-
+		setStartEnEindPunt(start, eind);		
 	}
 
 	public void setStartEnEindPunt(Punt start, Punt eind) {
