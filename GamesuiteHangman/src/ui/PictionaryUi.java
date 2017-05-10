@@ -7,7 +7,7 @@ import domain.*;
 public class PictionaryUi {
 	
 	private Speler speler;
-	private Object[] shapes = {"Cirkel", "Rechthoek"};
+	private Object[] shapes = {"Cirkel", "Rechthoek", "Lijnstuk", "Driehoek" };
 	
 	
 	
@@ -55,13 +55,31 @@ public class PictionaryUi {
 			Cirkel cirkel = new Cirkel(punt, radius);
 			
 			JOptionPane.showMessageDialog(null, "U heeft een correcte cirkel aangemaakt: " + cirkel);
+		
+			
+		case "Lijnstuk": 
+			
+			Punt punt1 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het eerste punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het eerste punt")));
+			Punt punt2 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het tweede punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het tweede punt")));
+
+			LijnStuk lijnstuk = new LijnStuk (punt1, punt2);
+			
+			JOptionPane.showMessageDialog(null, "U heeft het lijnstuk gemaakt: " + lijnstuk.toString());
+			
+		case "Driehoek": 
+			Punt puntDriehoek1 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het eerste punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het eerste punt")));
+			Punt puntDriehoek2 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het tweede punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het tweede punt")));
+			Punt puntDriehoek3 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het derde punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het derde punt")));
+			
+			Driehoek driehoek = new Driehoek (puntDriehoek1, puntDriehoek2, puntDriehoek3);
+			
+			JOptionPane.showMessageDialog(null, driehoek.toString());
+		
 		default:
 			
 		}
 	}
 
-	
-	
 	public void showMenu(){
 		
 		
