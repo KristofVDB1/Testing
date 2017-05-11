@@ -8,10 +8,9 @@ import java.util.Scanner;
 
 import domain.*;
 public class WoordenLijst {
-	private ArrayList<Woord> geldigeWoorden= new ArrayList<>();
-	File woordenlijstFile = new File("hangman.txt");
+	
     private Random randomGenerator;
-
+	private ArrayList<String> geldigeWoorden = new ArrayList<>();
 
 	public WoordenLijst() {
 		
@@ -23,23 +22,26 @@ public class WoordenLijst {
 		return aantalwoorden;
 	}
 	
-	public void voegToe(Woord woord) {
-		geldigeWoorden.add(woord);
+	public void voegToe(String naam) {
+		if (naam == "") {
+			throw new DomainException("woord mag niet leeg zijn");
+		}
+		if (naam == null) {
+			throw new DomainException("Woord mag niet null zijn");
+		}
+		
+		for (int i = 0; i <geldigeWoorden.size(); i++) {
+			if (naam == geldigeWoorden.get(i)) {
+				throw new DomainException("Woord staat al in de lijst");
+			}
+		}
+		geldigeWoorden.add(naam);
 	}
 	
-	public Woord getRandomWoord () {
+	public String getRandomWoord () {
 		int randomNumber = 0;
 		randomNumber = randomGenerator.nextInt(geldigeWoorden.size());
 		return geldigeWoorden.get(randomNumber);
 	}
 	
-	public void voegTxtToe() throws FileNotFoundException {
-		Scanner scannerFile = new Scanner(woordenlijstFile); 
-		while (scannerFile.hasNextLine()) { 
-		Scanner scannerLijn = new Scanner(scannerFile.nextLine()); 
-		String naam = scannerLijn.next(); 
-		Woord woord = new Woord(naam);
-		geldigeWoorden.add(woord);
-	}
-}
 }
