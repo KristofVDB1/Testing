@@ -1,6 +1,5 @@
 package domain;
 
-import domain.*;
 import java.awt.Graphics;
 
 import domain.Punt;
