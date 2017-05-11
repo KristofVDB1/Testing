@@ -1,4 +1,4 @@
-package domain;
+package db;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,15 +24,15 @@ public class WoordenLijst {
 	
 	public void voegToe(String naam) {
 		if (naam == "") {
-			throw new DomainException("woord mag niet leeg zijn");
+			throw new DbException("woord mag niet leeg zijn");
 		}
 		if (naam == null) {
-			throw new DomainException("Woord mag niet null zijn");
+			throw new DbException("Woord mag niet null zijn");
 		}
 		
 		for (int i = 0; i <geldigeWoorden.size(); i++) {
 			if (naam == geldigeWoorden.get(i)) {
-				throw new DomainException("Woord staat al in de lijst");
+				throw new DbException("Woord staat al in de lijst");
 			}
 		}
 		geldigeWoorden.add(naam);
