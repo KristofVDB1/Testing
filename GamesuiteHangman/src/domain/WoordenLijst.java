@@ -1,11 +1,13 @@
 package domain;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
 
 import domain.*;
 public class WoordenLijst {
 	private ArrayList<String> geldigeWoorden;
+	File woordenlijstFile = new File("hangman.txt");
     private Random randomGenerator;
 
 
