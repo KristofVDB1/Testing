@@ -97,8 +97,13 @@ public class Tekening implements Drawable {
 	@Override
 	public void teken(Graphics graphics) {
 		for(Vorm v: this.vormen){
+			if(v.isZichtbaar()) v.teken(graphics);
 			v.teken(graphics);
 		}
 		
+	}
+	
+	public ArrayList<Vorm> getVormen(){
+		return vormen;
 	}
 }
