@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
+import db.DbException;
+import db.WoordenLijst;
+
 public class WoordenLijstTest {
 	
 	private WoordenLijst woordenlijstLeeg;
@@ -46,17 +49,17 @@ public class WoordenLijstTest {
 		assertEquals(1,woordenlijstLeeg.getAantalWoorden());
 	}
 	
-	@Test (expected = DomainException.class)
+	@Test (expected = DbException.class)
 	public void voegToe_moet_exception_gooien_als_gegeven_woord_null() {
 		woordenlijstLeeg.voegToe(null);
 	}
 	
-	@Test (expected = DomainException.class)
+	@Test (expected = DbException.class)
 	public void voegToe_moet_exception_gooien_als_gegeven_woord_leeg() {
 		woordenlijstLeeg.voegToe("");
 	}
 	
-	@Test (expected = DomainException.class)
+	@Test (expected = DbException.class)
 	public void voegToe_moet_exception_gooien_als_gegeven_woord_reeds_in_lijst() {
 		String woordAlInLijst = geldigeWoorden.get(2);
 
