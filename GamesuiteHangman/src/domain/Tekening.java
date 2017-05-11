@@ -98,7 +98,6 @@ public class Tekening implements Drawable {
 	public void teken(Graphics graphics) {
 		for(Vorm v: this.vormen){
 			if(v.isZichtbaar()) v.teken(graphics);
-			v.teken(graphics);
 		}
 		
 	}

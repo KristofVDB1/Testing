@@ -7,9 +7,11 @@ import domain.*;
 public class HangManUi {
 	private Speler speler;
 	private HintWoord woord;
+	private TekeningHangMan tekening;
 	
 	public HangManUi(){
 		woord = new HintWoord("bird");
+		tekening = new TekeningHangMan("HangMan");
 	}
 
 	public Speler getSpeler() {
@@ -28,7 +30,10 @@ public class HangManUi {
 		this.woord = woord;
 	}
 	
-	public void play(){		
+	public void play(){
+		GameHoofdScherm view = new GameHoofdScherm(tekening.getNaam(), tekening.getTekening());
+		view.setVisible(true);
+		view.teken();
 		String message = "";
 		while(!woord.isGeraden()){
 			char letter = JOptionPane.showInputDialog(message + "Have you heard about the word?"
