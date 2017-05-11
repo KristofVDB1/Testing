@@ -21,8 +21,8 @@ public class Launcher {
 		case "Pictionary":
 			PictionaryUi pictionary = new PictionaryUi();
 		case "Hangman":
-			WoordenLijst woordenlijst = new WoordenLijst();
-			woordenlijst.voegTxtToe();
+			WoordenLezer woordenlezer = new WoordenLezer("hangman.txt");
+			woordenlezer.lees();
 			HangManUi hangMan = new HangManUi();
 			hangMan.play();
 			

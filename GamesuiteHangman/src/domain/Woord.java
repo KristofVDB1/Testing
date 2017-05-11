@@ -18,4 +18,8 @@ public class Woord {
 		return naam;
 	}
 	
+	public String toString() {
+		return "" + naam;
+	}
+	
 }
