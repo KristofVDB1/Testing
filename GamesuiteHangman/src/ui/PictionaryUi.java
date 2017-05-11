@@ -38,7 +38,7 @@ public class PictionaryUi {
 					createShape();
 					break;
 				case 2:
-					GameHoofdScherm view = new GameHoofdScherm("nog niks", tekening);
+					GameHoofdScherm view = new GameHoofdScherm(tekening.getNaam(), tekening);
 					view.setVisible(true);
 					view.teken();
 					break;
@@ -73,45 +73,73 @@ public class PictionaryUi {
 				int y = Integer.parseInt(yString);
 				int breedte = Integer.parseInt(breedteString);
 				int hoogte = Integer.parseInt(hoogteString);
-				
-				JOptionPane.showMessageDialog(null, new Rechthoek(new Punt(x, y), breedte, hoogte));
+				Rechthoek rect = new Rechthoek(new Punt(x, y), breedte, hoogte);
+				JOptionPane.showMessageDialog(null, rect);
+				tekening.voegToe(rect);
 			}catch(NumberFormatException exc) {
 				JOptionPane.showMessageDialog(null, "Foute invoer");
+				createShape();
+			}catch(IllegalArgumentException e){
+				JOptionPane.showMessageDialog(null, e);
 				createShape();
 			}
 			break;
 		case "Cirkel":
 			int x = Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het punt"));
 			int y = Integer.parseInt(JOptionPane.showInputDialog("y coordinaat van het punt"));				
-			
-			Punt punt = new Punt(x, y);
-			
-			JOptionPane.showMessageDialog(null, "U heeft een correct punt aangemaakt: " + punt.toString());
-			
 			int radius = Integer.parseInt(JOptionPane.showInputDialog("Radius van de cirkel: "));
 			
-			Cirkel cirkel = new Cirkel(punt, radius);
+			try{
+				Cirkel cirkel = new Cirkel(new Punt(x, y), radius);
+				JOptionPane.showMessageDialog(null, "U heeft een correcte cirkel aangemaakt: " + cirkel);
+				tekening.voegToe(cirkel);
+			}catch(NumberFormatException exc) {
+				JOptionPane.showMessageDialog(null, "Foute invoer");
+				createShape();
+			}catch(IllegalArgumentException e){
+				JOptionPane.showMessageDialog(null, e);
+				createShape();
+			}
 			
-			JOptionPane.showMessageDialog(null, "U heeft een correcte cirkel aangemaakt: " + cirkel);
 		
 			break;
 		case "Lijnstuk": 
 			
-			Punt punt1 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het eerste punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het eerste punt")));
-			Punt punt2 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het tweede punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het tweede punt")));
-
-			LijnStuk lijnstuk = new LijnStuk (punt1, punt2);
 			
-			JOptionPane.showMessageDialog(null, "U heeft het lijnstuk gemaakt: " + lijnstuk.toString());
+			try{
+				Punt punt1 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het eerste punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het eerste punt")));
+				Punt punt2 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het tweede punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het tweede punt")));
+				
+				LijnStuk lijnstuk = new LijnStuk (punt1, punt2);
+				JOptionPane.showMessageDialog(null, "U heeft het lijnstuk gemaakt: " + lijnstuk.toString());
+				tekening.voegToe(lijnstuk);
+			}catch(NumberFormatException exc) {
+				JOptionPane.showMessageDialog(null, "Foute invoer");
+				createShape();
+			}catch(IllegalArgumentException e){
+				JOptionPane.showMessageDialog(null, e);
+				createShape();
+			}
+			
 			break;
 		case "Driehoek": 
-			Punt puntDriehoek1 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het eerste punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het eerste punt")));
-			Punt puntDriehoek2 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het tweede punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het tweede punt")));
-			Punt puntDriehoek3 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het derde punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het derde punt")));
 			
-			Driehoek driehoek = new Driehoek (puntDriehoek1, puntDriehoek2, puntDriehoek3);
-			
-			JOptionPane.showMessageDialog(null, driehoek.toString());
+			try{
+				Punt puntDriehoek1 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het eerste punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het eerste punt")));
+				Punt puntDriehoek2 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het tweede punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het tweede punt")));
+				Punt puntDriehoek3 = new Punt (Integer.parseInt(JOptionPane.showInputDialog("x coordinaat van het derde punt: ")), Integer.parseInt(JOptionPane.showInputDialog("Y coordinaat van het derde punt")));
+
+				Driehoek driehoek = new Driehoek (puntDriehoek1, puntDriehoek2, puntDriehoek3);
+
+				JOptionPane.showMessageDialog(null, driehoek.toString());
+				tekening.voegToe(driehoek);
+			}catch(NumberFormatException exc) {
+				JOptionPane.showMessageDialog(null, "Foute invoer");
+				createShape();
+			}catch(IllegalArgumentException e){
+				JOptionPane.showMessageDialog(null, e);
+				createShape();
+			}
 			break;
 		default:
 			
