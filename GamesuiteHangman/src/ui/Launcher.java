@@ -21,6 +21,8 @@ public class Launcher {
 		case "Hangman":
 			HangManUi hangMan = new HangManUi();
 			hangMan.play();
+		default:
+			
 		}
 		
 		
