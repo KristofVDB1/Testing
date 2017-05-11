@@ -48,6 +48,10 @@ public class TekeningHangMan {
 		tekening.voegToe(armRechts);
 		tekening.voegToe(handLinks);
 		tekening.voegToe(handRechts);
+		
+		for(int i = 4; i < 18; i++) {
+			tekening.getVorm(i).setZichtbaar(false);
+		}
 	}
 	
 	private void setNaam(String naam) {
@@ -77,7 +81,7 @@ public class TekeningHangMan {
 		for(Vorm vorm : tekening.getVormen()){
 			if(!vorm.isZichtbaar()){
 				vorm.setZichtbaar(true);
-				break;
+				return;
 			}
 		}
 		throw new DomainException("Alles zichtbaar");
@@ -97,7 +101,7 @@ public class TekeningHangMan {
 		throw new DomainException("");
 	}
 	
-	public void voegToe() {
+	public void voegToe(Vorm vorm) {
 		throw new DomainException("");
 	}
 }

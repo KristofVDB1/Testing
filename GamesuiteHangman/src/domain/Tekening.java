@@ -7,7 +7,7 @@ public class Tekening implements Drawable {
 	private static final int MIN_X = 0;
 	private static final int MIN_Y = 0;
 	private static final int MAX_X = 399;
-	private static final int MAX_y = 399;
+	private static final int MAX_Y = 399;
 	private String naam;
 	
 	private ArrayList<Vorm> vormen;
@@ -32,7 +32,7 @@ public class Tekening implements Drawable {
 		if(vorm == null) {
 			throw new DomainException("Ongeldige vorm");
 		}
-		if(vorm.getOmhullende().getMinimumX() >= Tekening.MIN_X && vorm.getOmhullende().getMaximumX() <= Tekening.MAX_X && vorm.getOmhullende().getMinimumY() >= Tekening.MIN_Y && vorm.getOmhullende().getMaximumY() <= Tekening.MAX_y){
+		if(vorm.getOmhullende().getMinimumX() >= Tekening.MIN_X && vorm.getOmhullende().getMaximumX() <= Tekening.MAX_X && vorm.getOmhullende().getMinimumY() >= Tekening.MIN_Y && vorm.getOmhullende().getMaximumY() <= Tekening.MAX_Y){
 			vormen.add(vorm);
 		}
 		else{

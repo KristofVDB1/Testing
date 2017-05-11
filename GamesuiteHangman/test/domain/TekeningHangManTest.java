@@ -31,7 +31,7 @@ public class TekeningHangManTest {
 		assertFalse(tekening.getVorm(5).isZichtbaar());
 	}
 	
-	@Test (expected = IllegalArgumentException.class)
+	@Test (expected = DomainException.class)
 	public void zetVolgendeZichtbaar_gooit_exception_als_alle_zichtbaar() {
 		for(int i = 0; i < 18; i++) {
 			tekeningHangman.zetVolgendeZichtbaar();
@@ -48,12 +48,12 @@ public class TekeningHangManTest {
 		}
 	} 
 	
-	@Test (expected = IllegalArgumentException.class)
+	@Test (expected = DomainException.class)
 	public void voegToe_moet_een_exception_gooien() {
 		tekeningHangman.voegToe(null);
 	}
 	
-	@Test (expected = IllegalArgumentException.class)
+	@Test (expected = DomainException.class)
 	public void verwijder_moet_exception_gooien() {
 		tekeningHangman.verwijder();
 	}
