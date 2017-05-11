@@ -14,7 +14,7 @@ public class HintWoord {
 		}
 	}
 	
-	private void setWoord(String woord){
+	public void setWoord(String woord){
 		if(woord == null || woord.trim().isEmpty()){
 			throw new DomainException("Het woord mag niet leeg zijn");
 		}

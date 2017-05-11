@@ -6,12 +6,17 @@ import domain.*;
 
 public class HangManUi {
 	private Speler speler;
+	private WoordenLijst woordenlijst;
 	private HintWoord woord;
-	private TekeningHangMan tekening;
+	private HangmanPaneel paneel;
+	private HangMan spel;
+	private HangManHoofdScherm hoofdScherm;
 	
-	public HangManUi(){
+	
+	public HangManUi(Speler speler, WoordenLijst woordenlijst){
 		woord = new HintWoord("bird");
-		tekening = new TekeningHangMan("HangMan");
+		this.speler = speler;
+		
 	}
 
 	public Speler getSpeler() {
@@ -31,7 +36,7 @@ public class HangManUi {
 	}
 	
 	public void play(){
-		GameHoofdScherm view = new GameHoofdScherm(tekening.getNaam(), tekening.getTekening());
+		/*GameHoofdScherm view = new GameHoofdScherm(tekening.getNaam(), tekening.getTekening());
 		view.setVisible(true);
 		view.teken();
 		String message = "";
@@ -48,8 +53,12 @@ public class HangManUi {
 			}
 
 		}
-		JOptionPane.showMessageDialog(null, "Wa-Ha-Hauw! je hebt het woord geraden!");
+		JOptionPane.showMessageDialog(null, "Wa-Ha-Hauw! je hebt het woord geraden!");*/
 		
+		spel = new HangMan(speler, woordenlijst);
+		paneel = new HangmanPaneel(spel);
+		hoofdScherm = new HangManHoofdScherm(spel, paneel);
+		hoofdScherm.start();
 		
 	}
 	
