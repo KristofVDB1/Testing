@@ -53,11 +53,27 @@ public class HangmanPaneel extends JPanel {
 				if(input.length() > 0){
 					guess = input.charAt(0);
 				}
-				//TODO raad
+				spel.raad(guess);
 
 				woord.setText(getSpel().getHint());
 				letter.setText("");
 				getTekenVenster().teken();
+				
+				if(spel.isGewonnen()||spel.isGameOver()){
+					if(spel.isGewonnen())
+						JOptionPane.showMessageDialog(null, "HIEP HIEP HOERA");
+					else{
+						JOptionPane.showMessageDialog(null, "you dieded");
+					}
+					String keuze = JOptionPane.showInputDialog("opnieuw? (y/n)");
+					if(keuze.equals("y")||keuze.equals("Y")){
+						spel.getTekening().reset();
+						
+					}else if(keuze.equals("n")||keuze.equals("N")){
+						System.exit(0);
+					}
+				}
+				
 				
 				//TODO
 				//toon boodschap als gewonnen of verloren en vraag of speler opnieuw wilt spelen
