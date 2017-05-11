@@ -28,8 +28,7 @@ public class HangManUi {
 		this.woord = woord;
 	}
 	
-	public void play(){
-		
+	public void play(){		
 		String message = "";
 		while(!woord.isGeraden()){
 			char letter = JOptionPane.showInputDialog(message + "Have you heard about the word?"
