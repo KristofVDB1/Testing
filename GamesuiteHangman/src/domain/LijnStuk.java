@@ -64,7 +64,7 @@ public class LijnStuk extends Vorm implements Drawable {
 
 	@Override
 	public Omhullende getOmhullende() {
-		return new Omhullende(this.getStartPunt(), this.getEindPunt().getX()-this.getStartPunt().getX(), this.getEindPunt().getY()-this.getStartPunt().getY());
+		return new Omhullende(this.getStartPunt(), Math.abs(this.getEindPunt().getX()-this.getStartPunt().getX()), Math.abs(this.getEindPunt().getY()-this.getStartPunt().getY()));
 	}
 
 }

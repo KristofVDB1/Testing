@@ -32,7 +32,7 @@ public class Tekening implements Drawable {
 		if(vorm == null) {
 			throw new DomainException("Ongeldige vorm");
 		}
-		else if (vorm.getOmhullende().getMinimumX() >= Tekening.MIN_X && vorm.getOmhullende().getMaximumX() <= Tekening.MAX_X && vorm.getOmhullende().getMinimumY() >= Tekening.MIN_Y && vorm.getOmhullende().getMaximumY() <= Tekening.MAX_y){
+		if(vorm.getOmhullende().getMinimumX() >= Tekening.MIN_X && vorm.getOmhullende().getMaximumX() <= Tekening.MAX_X && vorm.getOmhullende().getMinimumY() >= Tekening.MIN_Y && vorm.getOmhullende().getMaximumY() <= Tekening.MAX_y){
 			vormen.add(vorm);
 		}
 		else{
@@ -97,8 +97,11 @@ public class Tekening implements Drawable {
 	@Override
 	public void teken(Graphics graphics) {
 		for(Vorm v: this.vormen){
-			v.teken(graphics);
+			if(v.isZichtbaar()) v.teken(graphics);
 		}
-		
+	}
+	
+	public ArrayList<Vorm> getVormen() {
+		return vormen;
 	}
 }
