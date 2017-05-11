@@ -32,14 +32,7 @@ public class Tekening implements Drawable {
 		if(vorm == null) {
 			throw new DomainException("Ongeldige vorm");
 		}
-<<<<<<< HEAD
 		if(vorm.getOmhullende().getMinimumX() >= Tekening.MIN_X && vorm.getOmhullende().getMaximumX() <= Tekening.MAX_X && vorm.getOmhullende().getMinimumY() >= Tekening.MIN_Y && vorm.getOmhullende().getMaximumY() <= Tekening.MAX_Y){
-=======
-		else if (vorm.getOmhullende().getMinimumX() >= Tekening.MIN_X 
-				&& vorm.getOmhullende().getMaximumX() <= Tekening.MAX_X 
-				&& vorm.getOmhullende().getMinimumY() >= Tekening.MIN_Y 
-				&& vorm.getOmhullende().getMaximumY() <= Tekening.MAX_y){
->>>>>>> 44dd9de1512b3eeb0c1d77d15aade2f06f1a160d
 			vormen.add(vorm);
 		}
 		else{
