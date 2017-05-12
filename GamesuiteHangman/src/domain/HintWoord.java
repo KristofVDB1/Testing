@@ -8,10 +8,7 @@ public class HintWoord {
 
 	public HintWoord(String woord) {
 		setWoord(woord);
-		letters = new ArrayList<>();
-		for(char c : woord.toCharArray()){
-			letters.add(new HintLetter(c));
-		}
+		
 	}
 	
 	public void setWoord(String woord){
@@ -19,6 +16,10 @@ public class HintWoord {
 			throw new DomainException("Het woord mag niet leeg zijn");
 		}
 		this.woord = woord;
+		letters = new ArrayList<>();
+		for(char c : woord.toCharArray()){
+			letters.add(new HintLetter(c));
+		}
 	}
 
 	public boolean isGeraden() {

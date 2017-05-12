@@ -26,8 +26,6 @@ public class Launcher {
 		case "Hangman":
 			WoordenLezer woordenlezer = new WoordenLezer("hangman.txt");
 			WoordenLijst lijst = woordenlezer.lees();
-			System.out.println(lijst.toString());
-			System.out.println(lijst.getRandomWoord());
 			HangManUi hangMan = new HangManUi(speler, lijst);
 			hangMan.play();
 			break;

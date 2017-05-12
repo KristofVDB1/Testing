@@ -4,11 +4,10 @@ import db.*;
 
 public class HangMan {
 	
-	Speler speler;
-	WoordenLijst woordenlijst;
-	boolean gameOver = false;
-	HintWoord woord;
-	TekeningHangMan tekening;
+	private Speler speler;
+	private WoordenLijst woordenlijst;
+	private HintWoord woord;
+	private TekeningHangMan tekening;
 
 	public HangMan(Speler geldigeSpeler, WoordenLijst geldigeWoordenlijst) {
 		setSpeler(geldigeSpeler);
@@ -19,6 +18,8 @@ public class HangMan {
 	}
 
 	private void setWoordenlijst(WoordenLijst geldigeWoordenlijst) {
+		if(geldigeWoordenlijst == null)
+			throw new DomainException("woordenlijst mag niet leeg zijn");
 		this.woordenlijst = geldigeWoordenlijst;
 		
 	}
@@ -35,7 +36,6 @@ public class HangMan {
 
 	public boolean isGameOver() {
 		if(tekening.getAantalOnzichtbaar()==0){
-			//woord.setWoord(woordenlijst.getRandomWoord());
 			return true;
 		}
 		return false;
@@ -43,9 +43,7 @@ public class HangMan {
 
 	public boolean isGewonnen() {
 		if(woord.isGeraden()){
-			//woord.setWoord(woordenlijst.getRandomWoord());
 			return true;
-			
 		}
 		return false;
 	}
@@ -69,9 +67,9 @@ public class HangMan {
 	}
 	
 	public void reset(){
-		
-		tekening.reset();
 		woord.setWoord(woordenlijst.getRandomWoord());
+		tekening.reset();
+		
 	}
 
 }
