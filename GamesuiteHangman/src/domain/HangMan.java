@@ -11,10 +11,22 @@ public class HangMan {
 	TekeningHangMan tekening;
 
 	public HangMan(Speler geldigeSpeler, WoordenLijst geldigeWoordenlijst) {
-		this.speler = geldigeSpeler;
-		this.woordenlijst = geldigeWoordenlijst;
+		setSpeler(geldigeSpeler);
+		setWoordenlijst(geldigeWoordenlijst);
 		tekening = new TekeningHangMan("HangMan - " + speler.getNaam());
-		woord = new HintWoord("programmeren");
+		String w = geldigeWoordenlijst.getRandomWoord();
+		woord = new HintWoord(w);
+	}
+
+	private void setWoordenlijst(WoordenLijst geldigeWoordenlijst) {
+		this.woordenlijst = geldigeWoordenlijst;
+		
+	}
+
+	private void setSpeler(Speler geldigeSpeler) {
+		if(geldigeSpeler == null)
+			throw new DomainException("Speler mag niet leeg zijn");
+		this.speler = geldigeSpeler;
 	}
 
 	public Speler getSpeler() {
@@ -54,6 +66,12 @@ public class HangMan {
 			tekening.zetVolgendeZichtbaar();
 		}
 		
+	}
+	
+	public void reset(){
+		
+		tekening.reset();
+		woord.setWoord(woordenlijst.getRandomWoord());
 	}
 
 }

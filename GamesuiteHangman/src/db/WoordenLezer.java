@@ -24,6 +24,7 @@ public class WoordenLezer {
 		Scanner scannerFile = new Scanner(woordenlijstFile);
 		while (scannerFile.hasNextLine()) {
 			Scanner scannerLijn = new Scanner(scannerFile.nextLine());
+			scannerLijn.useDelimiter("\n");
 			String naam = scannerLijn.next();
 			woordenlijst.voegToe(naam);
 		}

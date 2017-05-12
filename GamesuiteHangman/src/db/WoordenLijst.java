@@ -9,7 +9,7 @@ import java.util.Scanner;
 import domain.*;
 public class WoordenLijst {
 	
-    private Random randomGenerator;
+    private Random randomGenerator = new Random();
 	private ArrayList<String> geldigeWoorden = new ArrayList<>();
 
 	public WoordenLijst() {
@@ -42,6 +42,15 @@ public class WoordenLijst {
 		int randomNumber = 0;
 		randomNumber = randomGenerator.nextInt(geldigeWoorden.size());
 		return geldigeWoorden.get(randomNumber);
+	}
+	
+	@Override
+	public String toString(){
+		String res = "";
+		for(String w: geldigeWoorden){
+			res += w + "\n";
+		}
+		return res;
 	}
 	
 }

@@ -17,6 +17,7 @@ public class HangManUi {
 	public HangManUi(Speler speler, WoordenLijst woordenlijst){
 		woord = new HintWoord("bird");
 		this.speler = speler;
+		this.woordenlijst = woordenlijst;
 		
 	}
 
