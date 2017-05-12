@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import db.DbException;
+import db.WoordenLezer;
 import db.WoordenLijst;
 
 public class WoordenLijstTest {
@@ -15,6 +16,7 @@ public class WoordenLijstTest {
 	private WoordenLijst woordenlijstLeeg;
 	private WoordenLijst woordenlijstMetEenGeldigWoord;
 	private WoordenLijst woordenlijstMetGeldigeWoorden;
+	private WoordenLezer woordenlezer;
 	private ArrayList<String> geldigeWoorden;
 
 	@Before
@@ -33,7 +35,6 @@ public class WoordenLijstTest {
 		woordenlijstMetGeldigeWoorden.voegToe(geldigeWoorden.get(0));
 		woordenlijstMetGeldigeWoorden.voegToe(geldigeWoorden.get(1));
 		woordenlijstMetGeldigeWoorden.voegToe(geldigeWoorden.get(2));
-		
 	}
 
 	@Test
@@ -65,5 +66,10 @@ public class WoordenLijstTest {
 
 		woordenlijstMetGeldigeWoorden.voegToe(woordAlInLijst);
 	}
-
+	
+	@Test public void Random_woord_testen () {
+		String RandomWoord2 = woordenlijstMetGeldigeWoorden.getRandomWoord();
+		String RandomWoord1 = woordenlijstMetGeldigeWoorden.getRandomWoord();
+		assertFalse(RandomWoord1== RandomWoord2);			
+		}
 }
