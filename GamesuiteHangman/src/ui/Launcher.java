@@ -22,10 +22,12 @@ public class Launcher {
 		switch((String)keuze){
 		case "Pictionary":
 			PictionaryUi pictionary = new PictionaryUi();
+			break;
 		case "Hangman":
 			WoordenLezer woordenlezer = new WoordenLezer("hangman.txt");
 			HangManUi hangMan = new HangManUi(speler, woordenlezer.lees());
 			hangMan.play();
+			break;
 			
 		}
 		
