@@ -11,7 +11,7 @@ public class PictionaryUi {
 	private Object[] shapes = {"Cirkel", "Rechthoek", "Lijnstuk", "Driehoek" };
 	
 	public PictionaryUi(){
-		//setSpeler(speler);
+		setSpeler(speler);
 		createTekening();
 		showMenuTekening();
 	}

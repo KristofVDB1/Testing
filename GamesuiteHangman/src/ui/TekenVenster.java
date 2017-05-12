@@ -6,11 +6,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
-import domain.Cirkel;
-import domain.Driehoek;
-import domain.LijnStuk;
-import domain.Punt;
-import domain.Rechthoek;
 import domain.Tekening;
 
 public class TekenVenster extends Canvas {
@@ -38,30 +33,6 @@ public class TekenVenster extends Canvas {
 		Graphics2D graphics2D = (Graphics2D) graphics;
 		graphics2D.setStroke(new BasicStroke(5));
 
-		/*Cirkel boomkruin = new Cirkel(new Punt(70, 70), 60);
-		LijnStuk boomstam = new LijnStuk(new Punt(70, 130), new Punt(70, 380));
-		Rechthoek gebouw = new Rechthoek(new Punt(100, 200), 200, 180);
-		Driehoek dak = new Driehoek(new Punt(100, 200), new Punt(300, 200),
-				new Punt(200, 100));
-
-		graphics.drawOval(boomkruin.getOmhullende().getMinimumX(), boomkruin
-				.getOmhullende().getMinimumY(), boomkruin.getOmhullende()
-				.getBreedte(), boomkruin.getOmhullende().getHoogte());
-
-		graphics.drawRect(gebouw.getLinkerBovenhoek().getX(), gebouw
-				.getLinkerBovenhoek().getY(), gebouw.getBreedte(), gebouw
-				.getHoogte());
-
-		graphics.drawLine(boomstam.getStartPunt().getX(), boomstam
-				.getStartPunt().getY(), boomstam.getEindPunt().getX(), boomstam
-				.getEindPunt().getY());
-
-		int[] xPoints = { dak.getHoekpunt1().getX(), dak.getHoekpunt2().getX(),
-				dak.getHoekpunt3().getX() };
-		int[] yPoints = { dak.getHoekpunt1().getY(), dak.getHoekpunt2().getY(),
-				dak.getHoekpunt3().getY() };
-		graphics.drawPolygon(xPoints, yPoints, 3);*/
-		
 		tekening.teken(graphics);
 	}
 }

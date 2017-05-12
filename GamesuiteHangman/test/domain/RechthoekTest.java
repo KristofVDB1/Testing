@@ -10,14 +10,13 @@ public class RechthoekTest {
 	private Punt linkerBovenhoek;
 	private int breedte, hoogte;
 	private Rechthoek rechthoek;
-	private Omhullende omhullende;
-
+	
 	@Before
 	public void setUp() {
 		linkerBovenhoek = new Punt(200, 200);
 		breedte = 20;
 		hoogte = 40;
-		omhullende = new Omhullende(linkerBovenhoek, breedte, hoogte);
+		new Omhullende(linkerBovenhoek, breedte, hoogte);
 		rechthoek = new Rechthoek(linkerBovenhoek,breedte, hoogte);
 	}
 

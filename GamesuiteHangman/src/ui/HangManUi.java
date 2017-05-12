@@ -1,7 +1,5 @@
 package ui;
 
-import javax.swing.JOptionPane;
-
 import domain.*;
 import db.*;
 
@@ -38,24 +36,7 @@ public class HangManUi {
 	}
 	
 	public void play(){
-		/*GameHoofdScherm view = new GameHoofdScherm(tekening.getNaam(), tekening.getTekening());
-		view.setVisible(true);
-		view.teken();
-		String message = "";
-		while(!woord.isGeraden()){
-			char letter = JOptionPane.showInputDialog(message + "Have you heard about the word?"
-					+ "\n"
-					+ "\n" + woord
-					+ "\n"
-					+ "\n" + "geef een letter: ").charAt(0);
-			if(woord.raad(letter)){
-				message = "goed zo! \n\n";
-			}else{
-				message = "nej! \n\n";
-			}
-
-		}
-		JOptionPane.showMessageDialog(null, "Wa-Ha-Hauw! je hebt het woord geraden!");*/
+		
 		
 		spel = new HangMan(speler, woordenlijst);
 		paneel = new HangmanPaneel(spel);

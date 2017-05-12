@@ -1,7 +1,6 @@
 package domain;
 
 import java.awt.Graphics;
-import java.util.ArrayList;
 
 public class TekeningHangMan {
 	String naam;
@@ -17,7 +16,7 @@ public class TekeningHangMan {
 		Vorm koord = new LijnStuk(new Punt(280, 50), new Punt(280, 100));// altijd zichtbaar
 		Vorm hoofd = new Cirkel(new Punt(280, 125), 25);// zichtbaar na 1 fout
 		Vorm oogLinks = new Cirkel(new Punt(270, 118), 2);// zichtbaar na 2 fouten
-		Vorm oogRechts = new Cirkel(new Punt(290, 118), 2);//…
+		Vorm oogRechts = new Cirkel(new Punt(290, 118), 2);//ï¿½
 		Vorm neus = new Cirkel(new Punt(280, 128), 2);
 		Vorm mond = new LijnStuk(new Punt(270, 138), new Punt(290, 138));
 		Vorm lijf = new LijnStuk(new Punt(280, 150), new Punt(280, 250));

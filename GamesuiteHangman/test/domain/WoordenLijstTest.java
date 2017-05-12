@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import db.DbException;
-import db.WoordenLezer;
 import db.WoordenLijst;
 
 public class WoordenLijstTest {
@@ -16,7 +15,6 @@ public class WoordenLijstTest {
 	private WoordenLijst woordenlijstLeeg;
 	private WoordenLijst woordenlijstMetEenGeldigWoord;
 	private WoordenLijst woordenlijstMetGeldigeWoorden;
-	private WoordenLezer woordenlezer;
 	private ArrayList<String> geldigeWoorden;
 
 	@Before
