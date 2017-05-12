@@ -22,6 +22,7 @@ public class Launcher {
 		switch((String)keuze){
 		case "Pictionary":
 			PictionaryUi pictionary = new PictionaryUi();
+			break;
 		case "Hangman":
 			WoordenLezer woordenlezer = new WoordenLezer("hangman.txt");
 			WoordenLijst lijst = woordenlezer.lees();
@@ -29,6 +30,7 @@ public class Launcher {
 			System.out.println(lijst.getRandomWoord());
 			HangManUi hangMan = new HangManUi(speler, lijst);
 			hangMan.play();
+			break;
 			
 		}
 		
