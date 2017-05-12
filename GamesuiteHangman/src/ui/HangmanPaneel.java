@@ -67,7 +67,7 @@ public class HangmanPaneel extends JPanel {
 					}
 					String keuze = JOptionPane.showInputDialog("opnieuw? (y/n)");
 					if(keuze.equals("y")||keuze.equals("Y")){
-						spel.getTekening().reset();
+						reset();
 						
 					}else if(keuze.equals("n")||keuze.equals("N")){
 						System.exit(0);

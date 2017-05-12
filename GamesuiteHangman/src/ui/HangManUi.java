@@ -3,6 +3,7 @@ package ui;
 import javax.swing.JOptionPane;
 
 import domain.*;
+import db.*;
 
 public class HangManUi {
 	private Speler speler;

@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 
 import javax.swing.JOptionPane;
 
-import db.WoordenLezer;
+import db.*;
 import ui.PictionaryUi;
 import domain.*;
 
