@@ -19,7 +19,9 @@ public class HangMan {
 
 	private void setWoordenlijst(WoordenLijst geldigeWoordenlijst) {
 		if(geldigeWoordenlijst == null)
-			throw new DomainException("woordenlijst mag niet leeg zijn");
+			throw new DomainException("geen woordenlijst meegegeven");
+		if(geldigeWoordenlijst.getAantalWoorden()<1)
+			throw new DomainException("woordenlijst mag niet leeg zijn.");
 		this.woordenlijst = geldigeWoordenlijst;
 		
 	}
